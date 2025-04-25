@@ -1,0 +1,25 @@
+.CardContainer {
+    width: 100%;
+    padding: 16px;
+}
+
+.Image{
+
+}
+
+.Content{
+
+}
+
+.Title{
+    color: var(--text-main);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.Subtitle{
+    color: var(--text-subdued);
+    font-size: 13px;
+    font-weight: 600;
+
+}
