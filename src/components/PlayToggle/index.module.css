@@ -1,0 +1,44 @@
+@reference "@/index.css";
+
+.Button{
+    @apply bg-primary-main w-13 h-13 text-light shadow-lg;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.Button:hover{
+    @apply bg-primary-light;
+    transform: scale(1.07);
+    transition: all ease-in-out 0.05s;
+}
+
+.Button:hover .Icon{
+    transform: scale(1);
+}
+
+.Button:focus{
+    outline: none;
+}
+
+.Button:hover .Icon{
+
+}
+
+.Button:active{
+    transform: scale(1);
+    transition: all ease-in-out 0.05s;
+    @apply bg-primary-dark
+
+}
+
+.Button.Small{
+
+}
+
+.Icon{
+    @apply text-2xl;
+    line-height: 1;
+}

@@ -1,0 +1,30 @@
+@reference "@/index.css";
+
+
+.Button{
+    @apply text-mute;
+    cursor: pointer;
+}
+
+.Button:hover .Icon{
+    transform: scale(1.03);
+}
+
+.Button.Active .Icon svg{
+    color:  var(--color-primary-main);
+
+}
+
+.Large .Icon{
+    @apply text-2xl;
+}
+
+.Medium{
+
+}
+
+.Small .Icon{
+    @apply text-sm;
+}
+
+
