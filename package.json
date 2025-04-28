@@ -12,6 +12,7 @@
   "dependencies": {
     "@base-ui-components/react": "^1.0.0-alpha.7",
     "@tailwindcss/vite": "^4.1.4",
+    "axios": "^1.9.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.484.0",
     "lucide-solid": "^0.503.0",
