@@ -1,12 +1,13 @@
 import axios, { AxiosRequestConfig } from "axios";
+import store from "@redux/store.ts";
 
-const DOMAIN = process.env.REACT_APP_API_URL || "https://api.muemp3.site";
+const DOMAIN = import.meta.env.VITE_API_BASE_URL || "https://api.muemp3.site";
 
-const request = axios.create({
+const axiosInstance = axios.create({
     proxy: false,
     baseURL: DOMAIN,
 });
-request.interceptors.response.use(
+axiosInstance.interceptors.response.use(
     function (response) {
         return response.data;
     },
@@ -29,38 +30,50 @@ request.interceptors.response.use(
     }
 );
 
+axiosInstance.interceptors.request.use(
+    (config) => {
+        const state = store.getState();
+        const token = state.auth.accessToken;
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+            config.headers["User-Agent"] = navigator.userAgent
+        }
+
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+);
+
+
 export default {
     async get<T>(
         endpoint: string,
         option?: AxiosRequestConfig<never>
-    ): Promise<ApiResponse<T>> {
-        return await request.get(endpoint, option);
+    ): Promise<T> {
+        return await axiosInstance.get(endpoint, option);
     },
     async post<T, D>(
         endpoint: string,
         data?: D,
         option?: AxiosRequestConfig<never>
-    ): Promise<ApiResponse<T>> {
-        return await request.post(endpoint, data, option);
+    ): Promise<T> {
+        return await axiosInstance.post(endpoint, data, option);
     },
     async put<T, D>(
         endpoint: string,
         data?: D,
         option?: AxiosRequestConfig<never>
-    ): Promise<ApiResponse<T>> {
-        return await request.put(endpoint, data, option);
+    ): Promise<T> {
+        return await axiosInstance.put(endpoint, data, option);
     },
     async delete<T>(
         endpoint: string,
         option?: AxiosRequestConfig<never>
-    ): Promise<ApiResponse<T>> {
-        return request.delete(endpoint, option);
+    ): Promise<T> {
+        return axiosInstance.delete(endpoint, option);
     },
 
 };
 
-
-export interface ApiResponse<T> {
-    data: T
-    message: string
-}

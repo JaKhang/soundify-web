@@ -1,36 +1,43 @@
-@import "tailwindcss";
 
-@theme{
-    --color-primary-main: #1ed760; /* Original --background-base */
-    --color-primary-light: #3be477; /* Original --background-highlight, --background-elevated-base, --background-elevated-highlight */
-    --color-primary-dark: #1abc54; /* Original --background-press, --background-elevated-press */
 
-    /* Background Tinted Colors */
-    --color-tinted-base: hsla(0,0%,100%,.1);
-    --color-tinted-light: hsla(0,0%,100%,.14);
-    --color-tinted-dark: hsla(0,0%,100%,.21);
-
-    /* Common Colors */
-    --color-base: #fff; /* Used for --text-base, --essential-base, --decorative-base */
-    --color-bright-accent: #1ed760; /* Used for --text-bright-accent, --text-positive, --essential-bright-accent, --essential-positive */
-    --color-warning: #ffa42b; /* Used for --text-warning, --essential-warning */
-    --color-announcement: #4cb3ff; /* Used for --text-announcement, --essential-announcement */
-
-    /* Unique Colors */
-    --color-subdued: #b3b3b3; /* Used for --text-subdued */
-    --color-negative: #f3727f; /* Used for --text-negative */
-    --color-essential-subdued: #7c7c7c;
-    --color-essential-negative: #ed2c3f;
-    --color-decorative-subdued: #292929;
-
-    /* Background Colors */
-    --color-dark-base: #121212;
-    --color-dark-paper: #999999;
-
-    /* Text Colors */
-    --color-light: #fff; /* Used for --text-main, --text-highlight, --text-link, --text-link-hover */
-    --color-dark: #000;
-    --color-mute: #b3b3b3;
+@font-face {
+    font-family: 'SpotifyMixUI';
+    src: url('./assets/font/SpotifyMixUI Title Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
 }
 
+@font-face {
+    font-family: 'SpotifyMixUI';
+    src: url('./assets/font/SpotifyMixUI Bold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'SpotifyMixUI';
+    src: url('./assets/font/SpotifyMixUI Title Variable.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SpotifyMixUI';
+    src: url('./assets/font/SpotifyMixUI Title Extrabold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SpotifyMixUI';
+    src: url('./assets/font/SpotifyMixUI Regular.ttf') format('truetype');
+
+
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Example Usage */
+body {
+    font-family: 'SpotifyMixUI', sans-serif;
+}

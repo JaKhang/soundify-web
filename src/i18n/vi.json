@@ -1,0 +1,17 @@
+{
+  "app": {
+    "title": "Soundify - Web nghe nhạc trực tuyến"
+  },
+  "queue": {
+    "title": "Danh sách chờ",
+    "playing": "Đang phát",
+    "next": "Tiếp theo trong hàng đợi",
+    "from": "Từ"
+
+  },
+  "search": {
+    "explore": "Khám Phá",
+    "placeholder": "Bạn muốn tìm nội dung gì?"
+
+  }
+}

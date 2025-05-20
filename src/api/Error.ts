@@ -1,0 +1,27 @@
+export enum ErrorCode {
+    BAD_CREDENTIALS = 1001,
+    ACCOUNT_LOCKED = 1002,
+    ACCOUNT_DISABLED = 1003,
+    ACCOUNT_EXPIRED = 1004,
+    CREDENTIALS_EXPIRED = 1005,
+    USER_NOT_FOUND = 1006,
+    UNAUTHORIZED = 1007,
+    TOKEN_EXPIRED = 1008,
+    TOKEN_INVALID = 1009,
+    FORBIDDEN = 1010,
+    SERVER_ERROR = 1000,
+    CODE_INVALID = 1011,
+    CODE_EXPIRED = 1012,
+    ACCOUNT_VERIFIED = 1013,
+    RESOURCE_NOT_FOUND = 2001,
+    NEW_PASSWORD_INVALID = 2002,
+    UNKNOWN = 0,
+    EMAIL_ALREADY_USED = 1014,
+    DEVICE_INVALID = 1015
+}
+
+export interface ApiError {
+    code: ErrorCode;
+    status: number;
+    message: string;
+}
