@@ -26,7 +26,7 @@ import {
     GitHub,
 } from '@mui/icons-material';
 import { useForm, Controller } from 'react-hook-form';
-import {useAppDispatch} from "@redux/index.ts";
+import {useAppDispatch} from "@redux/store.ts";
 import authApi from "../../api/AuthApi.ts";
 import {getPrincipal} from "@features/auth/authSlice.ts";
 import {useNavigate} from "react-router";

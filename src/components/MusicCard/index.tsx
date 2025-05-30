@@ -1,9 +1,11 @@
 import React, {FC, JSX} from 'react';
-import {Box, Slider as MUISlider, Stack, styled, Typography} from "@mui/material";
+import {Box, Button, Fab, Stack, styled, Typography} from "@mui/material";
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import ResImage from "@components/ResImage";
 import {Image} from "@models/Image.ts";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
-interface MusicCardProps{
+interface MusicCardProps {
     image: Image[]
     title: string | JSX.Element
     id: string
@@ -12,21 +14,60 @@ interface MusicCardProps{
     subTitle?: string | JSX.Element
 
 }
+
 const Thumbnail = styled(Box)({
     aspectRatio: "1/1",
     borderRadius: "8px",
-    overflow: "hidden"
+    overflow: "hidden",
+    position: "relative"
 })
 const MusicCard: FC<MusicCardProps> = ({image, title, id, onClick, onPlayClick, subTitle}) => {
     return (
-        <Stack direction={"column"} onClick={() => onPlayClick(id)} padding={1}>
-            <Thumbnail>
+        <Stack sx={{
+            transition: "all 0.2s ease-in-out",
+            borderRadius: "8px",
+            "&:hover": {cursor: "pointer", backgroundColor: "rgba(255, 255, 255, 0.8)"},
+            "&:hover .play-button": {opacity: 1}
+        }}
+               direction={"column"}
+               padding={1}>
+            <Thumbnail onClick={() => onPlayClick(id)}>
+                <Fab className="play-button"
+                     color="primary"
+                     size="medium"
+                     sx={{
+                         position: "absolute",
+                         bottom: "5%",
+                         right: "5%",
+                         zIndex: 1000,
+                         boxShadow: "unset",
+                         opacity: 0,
+                         transition: "all 0.1s ease-in-out"
+                     }}
+                     onClick={() => onPlayClick(id)}>
+                    <PlayArrowIcon fontSize="medium"/>
+                </Fab>
                 <ResImage src={image} alt={title}/>
             </Thumbnail>
-            <Typography variant="h6" fontWeight={500} marginY   ={1} lineHeight={1.1}>
+            <Typography
+                sx={{
+                    "& *": {
+                        font: "inherit",
+                        color: "inherit",
+                        textDecoration: "none"
+                    }
+                }} variant="h6" fontWeight={500} marginY={1} lineHeight={1.1}>
                 {title}
             </Typography>
-            <Typography variant="body1" color="textSecondary">
+            <Typography
+                sx={{
+                    "& *": {
+                        font: "inherit",
+                        color: "inherit",
+                        textDecoration: "none"
+                    }
+                }}
+                variant="body1" color="textSecondary">
                 {subTitle}
             </Typography>
 

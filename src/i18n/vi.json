@@ -18,5 +18,13 @@
     "trending": "Thịnh hành"
   },
   "login": "Đăng Nhập",
-  "register": "Đăng Ký"
+  "register": "Đăng Ký",
+  "sidebar": {
+    "open": "Mở Thư Viện",
+    "close": "Đóng Thư Viện",
+    "title": "Thư Viện",
+    "add": "Thêm Thư Viện",
+    "search": "Tìm Kiếm",
+    "recent": "Gần đây"
+  }
 }

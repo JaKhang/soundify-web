@@ -4,9 +4,7 @@ import musicPlaySlice from "@features/play/musicPlaySlice.ts";
 
 
 
-export const useAuthAction = () => {
-  return authSlice.actions;
-};
+
 
 export const useLayoutAction = () => {
   return layoutSlice.actions;
@@ -15,3 +13,8 @@ export const useLayoutAction = () => {
 export const usePlayActions = () => {
   return musicPlaySlice.actions;
 }
+export const useAuthAction = () => {
+  return authSlice.actions;
+};
+
+

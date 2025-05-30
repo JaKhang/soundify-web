@@ -41,7 +41,7 @@ const ResImage: FC<ImageProps> = ({ src, alt }) => {
         };
     }, [src]);
 
-    return <img ref={imgRef} alt={alt} style={{ width: "100%", maxWidth: "640px" }} />;
+    return <img ref={imgRef} alt={alt} style={{ width: "100%", maxWidth: "640px", position: "relative" }} />;
 };
 
 export default ResImage;

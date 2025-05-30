@@ -1,4 +1,4 @@
-import {useAppSelector} from "@redux/index.ts";
+import {useAppSelector} from "@redux/store.ts";
 
 export const useAuthSelector = () => {
     return useAppSelector(state => state.auth)

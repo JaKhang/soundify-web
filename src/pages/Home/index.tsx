@@ -8,11 +8,12 @@ import {Album} from "@models/Album.ts";
 import {usePlayActions} from "@redux/action.ts";
 import albumApi from "../../api/AlbumApi.ts";
 import {PlayType} from "@features/play/musicPlaySlice.ts";
-import {useAppDispatch} from "@redux/index.ts";
+import {useAppDispatch} from "@redux/store.ts";
 import {Swiper, SwiperSlide} from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import {Navigation, Pagination} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+
 const Home = () => {
     const {t} = useTranslation()
     const navigate = useNavigate()
@@ -32,7 +33,6 @@ const Home = () => {
     }
 
 
-
     return (
         <Box paddingY={2}>
             <Box paddingX={4} position="relative">
@@ -43,24 +43,22 @@ const Home = () => {
                     slidesPerView={5}
                     modules={[Navigation, Pagination]}
                 >
-                        {albums.map(a => (
-                                <SwiperSlide>
-                                    <MusicCard
+                    {albums.map(a => (
+                        <SwiperSlide>
+                            <MusicCard
+                                subTitle={
+                                    <>
+                                        {a.artists.map(value => <Link to={`/artist/${a.id}`}>{value.name}</Link>)}
+                                    </>
+                                }
+                                image={a.images}
+                                title={a.name}
+                                id={a.id}
+                                onClick={() => navigate(`/albums/${a.id}`)}
+                                onPlayClick={() => handlePlay(a)}/>
+                        </SwiperSlide>
 
-                                        subTitle={
-                                         <>
-                                             {a.artists.map(value => <Link to={`/artist/${a.id}`}>{value.name}</Link>)}
-                                         </>
-                                        }
-                                               image={a.images}
-                                               title={a.name}
-                                               id={a.id}
-                                               onClick={() => navigate(`/albums/${a.id}`)}
-                                               onPlayClick={() => handlePlay(a)}/>
-                                </SwiperSlide>
-
-                        ))}
-
+                    ))}
                 </Swiper>
             </Box>
         </Box>

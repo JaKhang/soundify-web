@@ -1,12 +1,12 @@
 import React, {FC, useEffect} from 'react';
 import {useAuthSelector} from "@redux/selector.ts";
 import {useAuthAction} from "@redux/action.ts";
-import {useAppDispatch} from "@redux/index.ts";
 import OnlyChildrenProps from "../../utils/OnlyChildrenProps.ts";
 import {useCookies} from "react-cookie";
 import authApi from "../../api/AuthApi.ts";
 import {getPrincipal} from "@features/auth/authSlice.ts";
 import accountApi from "../../api/AccountApi.ts";
+import {useAppDispatch} from "@redux/store.ts";
 
 const AuthMiddleware: FC<OnlyChildrenProps> = ({children}) => {
     const {principal, loading, accessToken} = useAuthSelector()
