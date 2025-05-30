@@ -100,6 +100,9 @@ const musicPlaySlice = createSlice({
                 i = state.queue.length - 1;
             }
             state.currentTrackIndex = state.queue[i]
+        },
+        setCurrentIndex(state, action: PayloadAction<number>){
+            state.currentTrackIndex = action.payload
         }
 
 

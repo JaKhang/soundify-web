@@ -79,7 +79,9 @@ const HeadBar = () => {
                                 aria-haspopup="true"
                                 aria-expanded={open ? 'true' : undefined}
                             >
-                                <Avatar></Avatar>
+                                <Avatar src={principal.avatar[0]?.url}>
+
+                                </Avatar>
                             </IconButton>
                         </Tooltip>
                         <Menu

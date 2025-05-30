@@ -15,13 +15,14 @@ import {
 import {useLayoutSelector, usePlaySelector} from "@redux/selector.ts";
 import CloseIcon from '@mui/icons-material/Close';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import {useLayoutAction} from "@redux/action.ts";
+import {useLayoutAction, usePlayActions} from "@redux/action.ts";
 import {useAppDispatch} from "@redux/store.ts";
 import {useTranslation} from "react-i18next";
 import ResImage from "@components/ResImage";
 import {createArrayWithValue, getSubArrayAfterNumber} from "../../utils";
 import {Mode} from '@features/play/musicPlaySlice';
 import {TransitionGroup} from 'react-transition-group';
+import {Track} from "@models/Track.ts";
 
 const Container = styled(Box)(({theme}) => ({
     width: 400,
@@ -37,7 +38,8 @@ const Container = styled(Box)(({theme}) => ({
 const QueueBar = () => {
     const {openQueue} = useLayoutSelector()
     const {toggleQueue} = useLayoutAction()
-    const {currentTrackIndex, trackList, queue, title, mode, shuffle} = usePlaySelector()
+    const {currentTrackIndex, trackList, queue, mode, shuffle} = usePlaySelector()
+    const {setCurrentIndex} = usePlayActions();
     const dispatch = useAppDispatch();
     const currentTrack = currentTrackIndex != -1 ? trackList[currentTrackIndex] : null;
     const queueTrack = useMemo(() => {
@@ -51,6 +53,13 @@ const QueueBar = () => {
                 return getSubArrayAfterNumber(queue, currentTrackIndex).map(index => trackList[index]);
         }
     }, [queue, currentTrackIndex, mode, shuffle])
+
+    const handleItemClick = (track: Track ) =>{
+        let i = trackList.indexOf(track)
+        dispatch(setCurrentIndex(i))
+    }
+
+
     const {t} = useTranslation()
     return (
         openQueue &&
@@ -109,7 +118,7 @@ const QueueBar = () => {
                                                 <MoreHorizIcon/>
                                             </IconButton>
                                         }>
-                                        <ListItemButton dense sx={{borderRadius: "4px"}}>
+                                        <ListItemButton onClick={() => handleItemClick(track)} dense sx={{borderRadius: "4px"}}>
                                             <ListItemAvatar>
                                                 <Box width={40} height={40} overflow="hidden" borderRadius="4px">
                                                     <ResImage src={track?.album.images || []} alt={''}/>

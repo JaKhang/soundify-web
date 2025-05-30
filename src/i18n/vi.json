@@ -14,6 +14,9 @@
     "placeholder": "Bạn muốn tìm nội dung gì?"
 
   },
+  "section": {
+    "trending": "Thịnh hành"
+  },
   "login": "Đăng Nhập",
   "register": "Đăng Ký"
 }

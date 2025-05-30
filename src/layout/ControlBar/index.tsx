@@ -76,12 +76,7 @@ const ControlBar = () => {
     const {isFirstClick, handleClick} = useDebouncedClick(3000)
     const {t} = useTranslation()
     useEffect(() => {
-        dispatch(playTracks({
-            type: PlayType.ALBUM,
-            shuffle: true,
-            tracks,
-            title: album.name,
-        }));
+
     }, []);
 
 

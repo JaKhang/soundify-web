@@ -3,17 +3,21 @@ import Layout from "@layout/Layout.tsx";
 import {Route, Routes} from "react-router";
 import Home from "@pages/Home";
 import Login from "@pages/Login";
-import AuthFilter from "@features/auth/AuthFilter.tsx";
+import AuthorizeFilter from "@features/auth/AuthorizeFilter.tsx";
+import AuthMiddleware from "@features/auth/AuthMiddleware.tsx";
 
+// Import Swiper styles
 const App = () => {
     return (
-        <Routes>
-            <Route element={<Layout/>} >
-                <Route index element={<AuthFilter authenticated={false}><Home/></AuthFilter>}/>
-            </Route>
-            <Route path="/login" element={<Login/>}/>
+        <AuthMiddleware>
+            <Routes>
+                <Route element={<Layout/>} >
+                    <Route index element={<AuthorizeFilter authenticated={false}><Home/></AuthorizeFilter>}/>
+                </Route>
+                <Route path="/login" element={<Login/>}/>
 
-        </Routes>
+            </Routes>
+        </AuthMiddleware>
     );
 };
 

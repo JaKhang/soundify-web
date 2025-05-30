@@ -8,6 +8,7 @@ const Container = styled(Box)(({ theme }) => ({
     gridArea: "main-content",
     display: 'flex',
     alignItems: 'stretch',
+    overflow: "hidden"
 }));
 interface MainContentProps{
     children?: JSX.Element

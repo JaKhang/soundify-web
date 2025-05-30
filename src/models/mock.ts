@@ -33,6 +33,7 @@ export const artist: Artist = {
 const date = new Date('2022-08-24')
 
 
+
 export const album: Album = {
     artists: [
         artist
@@ -118,3 +119,216 @@ export const tracks: Track[] = [
         index: 3
     }
 ]
+
+export const albums : Album[] = [album,
+    {
+        "artists": [
+            {
+                "id": "1EowJ1WwkMzkCkRomFhui7",
+                "name": "RADWIMPS",
+                "images": [],  // Note: Spotify API does not provide artist images directly in album data
+                "genres": [],
+                "popularity": 10,  // This would need to be fetched separately
+                "followers": 0,  // This would also need to be fetched separately
+                "localeTag": "vi_vn"
+            }
+        ],
+        "explicit": false,
+        "genres": [],
+        "id": "4hAlZU3JXoThQ3jnF4CGiZ",
+        "images": [
+            {
+                "url": "https://i.scdn.co/image/ab67616d0000b273512668c8cf31d12749a6fa40",
+                "height": 640,
+                "width": 640
+            },
+            {
+                "url": "https://i.scdn.co/image/ab67616d00001e02512668c8cf31d12749a6fa40",
+                "height": 300,
+                "width": 300
+            },
+            {
+                "url": "https://i.scdn.co/image/ab67616d00004851512668c8cf31d12749a6fa40",
+                "height": 64,
+                "width": 64
+            }
+        ],
+        "label": "voque ting co., ltd.",
+        "localeTag": "vi_vn",
+        "name": "Weathering With You -Complete Version-",
+        "notAvailableLocaleTags": [],
+        "popularity": 52,
+        "releaseDate": "2019-11-27",
+        "type": AlbumType.ALBUM,
+        "numberOfTracks": 6
+    },
+    {
+        "artists": [
+            {
+                "id": "64tJ2EAv1R6UaZqc4iOCyj",
+                "name": "YOASOBI",
+                "images": [],  // Note: Spotify API does not provide artist images directly in album data
+                "genres": [],
+                "popularity": 0,  // This would need to be fetched separately
+                "followers": 0,  // This would also need to be fetched separately
+                "localeTag": "vi_vn"
+            }
+        ],
+        "explicit": false,
+        "genres": [],
+        "id": "4h9tiuZQB6hXz68dzZED6g",
+        "images": [
+            {
+                "url": "https://i.scdn.co/image/ab67616d0000b273cbf34641aa37bdab0fd93816",
+                "height": 640,
+                "width": 640
+            },
+            {
+                "url": "https://i.scdn.co/image/ab67616d00001e02cbf34641aa37bdab0fd93816",
+                "height": 300,
+                "width": 300
+            },
+            {
+                "url": "https://i.scdn.co/image/ab67616d00004851cbf34641aa37bdab0fd93816",
+                "height": 64,
+                "width": 64
+            }
+        ],
+        "label": "YOASOBI",
+        "localeTag": "vi_vn",
+        "name": "Adventure",
+        "notAvailableLocaleTags": [],
+        "popularity": 40,
+        "releaseDate": "2024-02-16",
+        "type": AlbumType.SINGLE,
+        "numberOfTracks": 1
+    }
+    ,
+    {
+        "artists": [
+            {
+                "id": "64tJ2EAv1R6UaZqc4iOCyj",
+                "name": "YOASOBI",
+                "images": [],  // Note: Spotify API does not provide artist images directly in album data
+                "genres": [],
+                "popularity": 0,  // This would need to be fetched separately
+                "followers": 0,  // This would also need to be fetched separately
+                "localeTag": "vi_vn"
+            }
+        ],
+        "explicit": false,
+        "genres": [],
+        "id": "1xhO0GSoezdPJcSuNe1ySv",
+        "images": [
+            {
+                "url": "https://i.scdn.co/image/ab67616d0000b273684d81c9356531f2a456b1c1",
+                "height": 640,
+                "width": 640
+            },
+            {
+                "url": "https://i.scdn.co/image/ab67616d00001e02684d81c9356531f2a456b1c1",
+                "height": 300,
+                "width": 300
+            },
+            {
+                "url": "https://i.scdn.co/image/ab67616d00004851684d81c9356531f2a456b1c1",
+                "height": 64,
+                "width": 64
+            }
+        ],
+        "label": "YOASOBI",
+        "localeTag": "vi_vn",
+        "name": "THE BOOK",
+        "notAvailableLocaleTags": [],
+        "popularity": 72,
+        "releaseDate": "2021-01-06",
+        "type": AlbumType.ALBUM,
+        "numberOfTracks": 9
+    },
+    {
+        "artists": [
+            {
+                "id": "57g2v7gJZepcwsuwssIfZs",
+                "name": "Vũ.",
+                "images": [],  // Note: Spotify API does not provide artist images directly in album data
+                "genres": [],
+                "popularity": 0,  // This would need to be fetched separately
+                "followers": 0,  // This would also need to be fetched separately
+                "localeTag": "vi_vn"
+            }
+        ],
+        "explicit": false,
+        "genres": [],
+        "id": "3pprs1r3mH3UhU23TUHBWJ",
+        "images": [
+            {
+                "url": "https://i.scdn.co/image/ab67616d0000b273be066d7fd668d8a0672b1245",
+                "height": 640,
+                "width": 640
+            },
+            {
+                "url": "https://i.scdn.co/image/ab67616d00001e02be066d7fd668d8a0672b1245",
+                "height": 300,
+                "width": 300
+            },
+            {
+                "url": "https://i.scdn.co/image/ab67616d00004851be066d7fd668d8a0672b1245",
+                "height": 64,
+                "width": 64
+            }
+        ],
+        "label": "WM Vietnam",
+        "localeTag": "vi_vn",
+        "name": "Bảo Tàng Của Nuối Tiếc",
+        "notAvailableLocaleTags": [],
+        "popularity": 63,
+        "releaseDate": "2024-09-27",
+        "type": AlbumType.ALBUM,
+        "numberOfTracks": 10
+    },
+    {
+        "artists": [
+            {
+                "id": "57g2v7gJZepcwsuwssIfZs",
+                "name": "Vũ.",
+                "images": [],  // Note: Spotify API does not provide artist images directly in album data
+                "genres": [],
+                "popularity": 0,  // This would need to be fetched separately
+                "followers": 0,  // This would also need to be fetched separately
+                "localeTag": "vi_vn"
+            }
+        ],
+        "explicit": false,
+        "genres": [],
+        "id": "3pprs1r3mH3UhU23TUHBWJ",
+        "images": [
+            {
+                "url": "https://i.scdn.co/image/ab67616d0000b273be066d7fd668d8a0672b1245",
+                "height": 640,
+                "width": 640
+            },
+            {
+                "url": "https://i.scdn.co/image/ab67616d00001e02be066d7fd668d8a0672b1245",
+                "height": 300,
+                "width": 300
+            },
+            {
+                "url": "https://i.scdn.co/image/ab67616d00004851be066d7fd668d8a0672b1245",
+                "height": 64,
+                "width": 64
+            }
+        ],
+        "label": "WM Vietnam",
+        "localeTag": "vi_vn",
+        "name": "Bảo Tàng Của Nuối Tiếc",
+        "notAvailableLocaleTags": [],
+        "popularity": 63,
+        "releaseDate": "2024-09-27",
+        "type": AlbumType.ALBUM,
+        "numberOfTracks": 10
+    }
+
+
+
+]
+

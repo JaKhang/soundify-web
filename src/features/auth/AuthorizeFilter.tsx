@@ -7,7 +7,7 @@ interface AuthFilterProps {
     children?: JSX.Element
 }
 
-const AuthFilter: FC<AuthFilterProps> = ({children, authenticated}) => {
+const AuthorizeFilter: FC<AuthFilterProps> = ({children, authenticated}) => {
     const {principal} = useAuthSelector()
     if (!authenticated)
         return children;
@@ -16,4 +16,4 @@ const AuthFilter: FC<AuthFilterProps> = ({children, authenticated}) => {
 
 };
 
-export default AuthFilter;
+export default AuthorizeFilter;

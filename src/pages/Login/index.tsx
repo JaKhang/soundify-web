@@ -66,8 +66,9 @@ const EnhancedLoginForm: React.FC = () => {
         setLoginError(null);
 
         authApi.login(data.email, data.password)
-            .then((token) => dispatch(getPrincipal(token.token)).unwrap())
+            .then((token) => dispatch(getPrincipal(token.token)))
             .then(() => navigate("/"))
+            .catch(e => console.log(e))
     };
 
     const handleSocialLogin = (provider: string) => {

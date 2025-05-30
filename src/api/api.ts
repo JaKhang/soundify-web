@@ -1,11 +1,12 @@
 import axios, { AxiosRequestConfig } from "axios";
 import store from "@redux/store.ts";
 
-const DOMAIN = import.meta.env.VITE_API_BASE_URL || "https://api.muemp3.site";
+const DOMAIN = import.meta.env.VITE_API_BASE_URL || "https://soundifies.space";
 
 const axiosInstance = axios.create({
     proxy: false,
     baseURL: DOMAIN,
+    withCredentials:true
 });
 axiosInstance.interceptors.response.use(
     function (response) {
@@ -36,7 +37,6 @@ axiosInstance.interceptors.request.use(
         const token = state.auth.accessToken;
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
-            config.headers["User-Agent"] = navigator.userAgent
         }
 
         return config;

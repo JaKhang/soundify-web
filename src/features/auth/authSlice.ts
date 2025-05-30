@@ -17,8 +17,9 @@ const initialState: AuthSate = {
 export const getPrincipal = createAsyncThunk(
     "auth/getPrincipal",
     async (accessToken: string, thunkAPI) => {
+
         try {
-            return await accountApi.getPrincipal();
+            return accountApi.getPrincipal()
         } catch (e) {
             return thunkAPI.rejectWithValue(e);
         }
@@ -49,6 +50,7 @@ const authSlice = createSlice({
             state.loading = true;
             state.accessToken = action.meta.arg;
         });
+
         builder.addCase(getPrincipal.fulfilled, (state, action) => {
             state.loading = false;
             state.principal = action.payload || null;
