@@ -87,7 +87,7 @@ const ControlBar = () => {
         } else {
             document.title = t("app.title")
         }
-    }, [currentTrackIndex, playing]);
+    }, [currentTrack, playing]);
 
 
 

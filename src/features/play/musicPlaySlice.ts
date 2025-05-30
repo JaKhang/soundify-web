@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {Track} from "@models/Track.ts";
 import {createArray, createShuffleArray} from "../../utils";
+import {tracks} from "@models/mock.ts";
 
 interface MusicPlayState {
     loading: boolean
@@ -103,6 +104,39 @@ const musicPlaySlice = createSlice({
         },
         setCurrentIndex(state, action: PayloadAction<number>){
             state.currentTrackIndex = action.payload
+        },
+        removeTracks(state, action: PayloadAction<Track[]>){
+            const removeIds = action.payload.map((t) => t.id);
+            if (state.shuffle){
+                // Xóa các track khỏi queue
+                state.queue = state.queue.filter((index) => {
+                    const track = state.trackList[index];
+                    return track && !removeIds.includes(track.id);
+                });
+
+                // Xóa các track khỏi trackList
+                state.trackList = state.trackList.filter((t) => !removeIds.includes(t.id));
+
+                // Điều chỉnh currentTrackIndex
+                const currentTrackId = state.trackList[state.currentTrackIndex]?.id;
+                if (currentTrackId && removeIds.includes(currentTrackId)) {
+                    // Nếu track hiện tại đã bị xóa, chuyển sang track tiếp theo trong queue
+                    if (state.queue.length > 0) {
+                        state.currentTrackIndex = state.queue[0];
+                        state.queue.shift(); // Loại bỏ track đầu tiên trong queue
+                    } else {
+                        state.currentTrackIndex = -1; // Không còn track nào
+                    }
+                }
+            } else {
+                const newList = state.trackList.filter(t => !removeIds.includes(t.id))
+                state.queue = createArray(newList.length)
+                state.trackList = newList;
+                if (state.currentTrackIndex >= newList.length){
+                    state.currentTrackIndex = newList.length - 1;
+                }
+
+            }
         }
 
 

@@ -6,6 +6,14 @@ interface AuthRequest{
     password: string
 }
 
+interface RegisterRequest {
+    email: string;
+    displayName: string;
+    dateOfBirth: string; // YYYY-MM-DD
+    gender: string;      // "MALE" | "FEMALE" | "OTHER"
+    password: string;
+}
+
 export class AuthApi {
     login(email:string, password:string){
         return api.post< TokenResponse, AuthRequest>("/v1/auth/authenticate", {usernameOrEmail: email, password}, {withCredentials: true})
@@ -14,6 +22,13 @@ export class AuthApi {
     getAccessToken(){
         return api.get<TokenResponse>("/v1/auth/access-token", {withCredentials: true})
 
+    }
+
+    register(data: RegisterRequest) {
+        return api.post<string, RegisterRequest>(
+            "/v1/auth/register",
+            data,
+        );
     }
 
 }

@@ -5,6 +5,8 @@ import Home from "@pages/Home";
 import Login from "@pages/Login";
 import AuthorizeFilter from "@features/auth/AuthorizeFilter.tsx";
 import AuthMiddleware from "@features/auth/AuthMiddleware.tsx";
+import Register from "@pages/register";
+import AlbumDetails from "@pages/AlbumDetails";
 
 // Import Swiper styles
 const App = () => {
@@ -13,9 +15,10 @@ const App = () => {
             <Routes>
                 <Route element={<Layout/>} >
                     <Route index element={<AuthorizeFilter authenticated={false}><Home/></AuthorizeFilter>}/>
+                    <Route path="/albums/:id" element={<AuthorizeFilter authenticated={false}><AlbumDetails/></AuthorizeFilter>}/>
                 </Route>
                 <Route path="/login" element={<Login/>}/>
-
+                <Route path="/register" element={<Register/>}/>
             </Routes>
         </AuthMiddleware>
     );

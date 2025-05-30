@@ -172,6 +172,15 @@ export const albums : Album[] = [album,
                 "popularity": 0,  // This would need to be fetched separately
                 "followers": 0,  // This would also need to be fetched separately
                 "localeTag": "vi_vn"
+            },
+            {
+                "id": "1EowJ1WwkMzkCkRomFhui7",
+                "name": "RADWIMPS",
+                "images": [],  // Note: Spotify API does not provide artist images directly in album data
+                "genres": [],
+                "popularity": 10,  // This would need to be fetched separately
+                "followers": 0,  // This would also need to be fetched separately
+                "localeTag": "vi_vn"
             }
         ],
         "explicit": false,

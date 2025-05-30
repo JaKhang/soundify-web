@@ -22,4 +22,6 @@ i18next
         }
     }).then(r => {});
 
+
+
 export default i18next

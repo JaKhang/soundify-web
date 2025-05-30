@@ -30,6 +30,8 @@ import {useAppDispatch} from "@redux/store.ts";
 import authApi from "../../api/AuthApi.ts";
 import {getPrincipal} from "@features/auth/authSlice.ts";
 import {useNavigate} from "react-router";
+import {useTranslation} from "react-i18next";
+import {ApiError} from "../../api/Error.ts";
 
 interface LoginFormData {
     email: string;
@@ -43,11 +45,12 @@ const EnhancedLoginForm: React.FC = () => {
     const [loginError, setLoginError] = useState<string | null>(null);
     const dispatch = useAppDispatch()
     const navigate = useNavigate();
+    const {t} = useTranslation()
     const {
         control,
         handleSubmit,
         formState: { errors, isValid },
-        reset,
+        setError,
     } = useForm<LoginFormData>({
         mode: 'onChange',
         defaultValues: {
@@ -61,6 +64,13 @@ const EnhancedLoginForm: React.FC = () => {
         setShowPassword(!showPassword);
     };
 
+    function handleError(e: ApiError) {
+        switch (e.code){
+            case 1004:
+                setError('email', {message: t('validate.badCredentials')})
+        }
+    }
+
     const onSubmit = async (data: LoginFormData) => {
         setIsLoading(true);
         setLoginError(null);
@@ -68,11 +78,12 @@ const EnhancedLoginForm: React.FC = () => {
         authApi.login(data.email, data.password)
             .then((token) => dispatch(getPrincipal(token.token)))
             .then(() => navigate("/"))
-            .catch(e => console.log(e))
+            .catch((e: ApiError) => handleError(e))
+            .finally(() => setIsLoading(false))
     };
 
     const handleSocialLogin = (provider: string) => {
-        console.log(`Login with ${provider}`);
+        console.log(`auth with ${provider}`);
     };
 
     return (
@@ -107,10 +118,10 @@ const EnhancedLoginForm: React.FC = () => {
                             color: 'primary.main',
                         }}
                     >
-                        Welcome Back
+                        {t('auth.title')}
                     </Typography>
                     <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-                        Please sign in to continue
+                        {t('auth.continue')}
                     </Typography>
 
                     {loginError && (
@@ -133,10 +144,10 @@ const EnhancedLoginForm: React.FC = () => {
                             name="email"
                             control={control}
                             rules={{
-                                required: 'Email is required',
+                                required: t('validate.email.required'),
                                 pattern: {
                                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                    message: 'Invalid email address',
+                                    message: t('validate.email.invalid'),
                                 },
                             }}
                             render={({ field }) => (
@@ -145,7 +156,7 @@ const EnhancedLoginForm: React.FC = () => {
                                     margin="normal"
                                     fullWidth
                                     id="email"
-                                    label="Email Address"
+                                    label={t('auth.email')}
                                     autoComplete="email"
                                     autoFocus
                                     error={!!errors.email}
@@ -165,10 +176,10 @@ const EnhancedLoginForm: React.FC = () => {
                             name="password"
                             control={control}
                             rules={{
-                                required: 'Password is required',
+                                required: t('validate.password.invalid'),
                                 minLength: {
-                                    value: 6,
-                                    message: 'Password must be at least 6 characters',
+                                    value: 8,
+                                    message: t('validate.password.min'),
                                 },
                             }}
                             render={({ field }) => (
@@ -176,7 +187,7 @@ const EnhancedLoginForm: React.FC = () => {
                                     {...field}
                                     margin="normal"
                                     fullWidth
-                                    label="Password"
+                                    label={t('auth.password')}
                                     type={showPassword ? 'text' : 'password'}
                                     id="password"
                                     autoComplete="current-password"
@@ -209,28 +220,11 @@ const EnhancedLoginForm: React.FC = () => {
                         />
 
                         <Grid container alignItems="center" sx={{ mt: 1, mb: 2 }}>
-                            <Grid item xs>
-                                <Controller
-                                    name="rememberMe"
-                                    control={control}
-                                    render={({ field }) => (
-                                        <FormControlLabel
-                                            control={
-                                                <Checkbox
-                                                    {...field}
-                                                    checked={field.value}
-                                                    color="primary"
-                                                    size="small"
-                                                />
-                                            }
-                                            label="Remember me"
-                                        />
-                                    )}
-                                />
-                            </Grid>
                             <Grid item>
                                 <Link href="#" variant="body2" underline="hover">
-                                    Forgot password?
+                                    {
+                                        t('auth.forgotPassword')
+                                    }
                                 </Link>
                             </Grid>
                         </Grid>
@@ -252,22 +246,22 @@ const EnhancedLoginForm: React.FC = () => {
                             {isLoading ? (
                                 <CircularProgress size={24} color="inherit" />
                             ) : (
-                                'Sign In'
+                                t('login')
                             )}
                         </Button>
 
                         <Grid container justifyContent="center">
                             <Grid item>
                                 <Typography variant="body2" color="text.secondary">
-                                    Don't have an account?{' '}
+                                    {t('auth.dontHaveAccount')}
                                     <Link href="#" variant="body2" underline="hover">
-                                        Sign Up
+                                        {t('register.name')}
                                     </Link>
                                 </Typography>
                             </Grid>
                         </Grid>
 
-                        <Divider sx={{ my: 3 }}>OR</Divider>
+                        <Divider sx={{ my: 3 }}>{t('auth.or')}</Divider>
 
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={6}>

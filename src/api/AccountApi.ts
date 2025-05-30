@@ -7,7 +7,7 @@ class AccountApi {
     }
 
     async logout() {
-        return await api.post("/api/v1/accounts/logout");
+        return await api.post("/v1/accounts/logout");
     }
 
     async getDevices() {

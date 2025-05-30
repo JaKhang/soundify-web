@@ -21,7 +21,8 @@ export enum ErrorCode {
 }
 
 export interface ApiError {
-    code: ErrorCode;
-    status: number;
+    code: number;
     message: string;
+    data: object
 }
+

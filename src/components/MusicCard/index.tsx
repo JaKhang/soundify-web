@@ -1,6 +1,5 @@
 import React, {FC, JSX} from 'react';
-import {Box, Button, Fab, Stack, styled, Typography} from "@mui/material";
-import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import {Box, Fab, Stack, styled, Typography} from "@mui/material";
 import ResImage from "@components/ResImage";
 import {Image} from "@models/Image.ts";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
@@ -9,7 +8,7 @@ interface MusicCardProps {
     image: Image[]
     title: string | JSX.Element
     id: string
-    onPlayClick?: (id: string) => void
+    onPlayClick: (id: string) => void
     onClick: (id: string) => void
     subTitle?: string | JSX.Element
 
@@ -22,6 +21,12 @@ const Thumbnail = styled(Box)({
     position: "relative"
 })
 const MusicCard: FC<MusicCardProps> = ({image, title, id, onClick, onPlayClick, subTitle}) => {
+
+    function handlePlayClick(e: never) {
+        e.stopPropagation()
+        onPlayClick(id)
+    }
+
     return (
         <Stack sx={{
             transition: "all 0.2s ease-in-out",
@@ -30,8 +35,8 @@ const MusicCard: FC<MusicCardProps> = ({image, title, id, onClick, onPlayClick, 
             "&:hover .play-button": {opacity: 1}
         }}
                direction={"column"}
-               padding={1}>
-            <Thumbnail onClick={() => onPlayClick(id)}>
+               padding={2}>
+            <Thumbnail onClick={() => onClick(id)}>
                 <Fab className="play-button"
                      color="primary"
                      size="medium"
@@ -44,10 +49,11 @@ const MusicCard: FC<MusicCardProps> = ({image, title, id, onClick, onPlayClick, 
                          opacity: 0,
                          transition: "all 0.1s ease-in-out"
                      }}
-                     onClick={() => onPlayClick(id)}>
+                     onClick={(e) => handlePlayClick(e)}
+                >
                     <PlayArrowIcon fontSize="medium"/>
                 </Fab>
-                <ResImage src={image} alt={title}/>
+                <ResImage src={image} alt={""}/>
             </Thumbnail>
             <Typography
                 sx={{

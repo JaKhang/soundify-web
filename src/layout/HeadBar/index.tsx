@@ -22,6 +22,8 @@ import SearchBar from "@layout/HeadBar/SearchBar.tsx";
 import {useAuthSelector} from "@redux/selector.ts";
 import {useTranslation} from "react-i18next";
 import SButton from "@components/SButton";
+import {useAppDispatch} from "@redux/store.ts";
+import {logout} from "@features/auth/authSlice.ts";
 const Container = styled(Box)(({ theme }) => ({
     height: 72,
     backgroundColor: theme.palette.background.paper,
@@ -41,6 +43,7 @@ const HeadBar = () => {
     const {principal} = useAuthSelector()
     const open = Boolean(anchorEl);
     const {t} = useTranslation()
+    const dispatch = useAppDispatch()
 
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -48,6 +51,10 @@ const HeadBar = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    function handleLogout() {
+        dispatch(logout())
+    }
 
     return (
         <Container>
@@ -140,7 +147,7 @@ const HeadBar = () => {
                                 </ListItemIcon>
                                 Settings
                             </MenuItem>
-                            <MenuItem onClick={handleClose}>
+                            <MenuItem onClick={handleLogout} >
                                 <ListItemIcon>
                                     <Logout  fontSize="small" />
                                 </ListItemIcon>
@@ -150,7 +157,7 @@ const HeadBar = () => {
                     </Box>
                 ) : (<Stack direction="row" spacing={1} alignItems={'center'}>
                     <SButton size='large' variant='text' color='primary' href='/login'>
-                        {t('register')}
+                        {t('register.name')}
                     </SButton>
                     <SButton size='large' variant='contained' color='primary' href='/login'>
                         {t('login')}

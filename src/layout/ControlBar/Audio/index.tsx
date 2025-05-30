@@ -21,8 +21,8 @@ const Audio = forwardRef<AudioAction, AudioProps>((props, ref)=> {
     const [time, setTime] = useState(0)
     const [src, setSrc] = useState("")
     const [changing, setChanging] = useState(false)
-    const {setLoading, setPlaying} = usePlayActions()
-    const {loading, playing, mode, volume, currentTrackIndex, trackList} = usePlaySelector()
+    const {setLoading, setPlaying, nextTrack} = usePlayActions()
+    const {loading, playing, mode, volume, currentTrackIndex, trackList, queue} = usePlaySelector()
 
     const dispatch = useAppDispatch();
 
@@ -38,7 +38,7 @@ const Audio = forwardRef<AudioAction, AudioProps>((props, ref)=> {
                     dispatch(setPlaying(false))
                 })
         }
-    }, [currentTrackIndex]);
+    }, [currentTrack?.id]);
 
     useEffect(() => {
         const audio = audioRef.current;
@@ -55,6 +55,8 @@ const Audio = forwardRef<AudioAction, AudioProps>((props, ref)=> {
         if (!audio) return;
         if (mode == Mode.REPEAT){
             audio.loop = true
+        } else {
+            audio.loop = false;
         }
     }, [mode]);
 
@@ -103,6 +105,15 @@ const Audio = forwardRef<AudioAction, AudioProps>((props, ref)=> {
 
 
     function handleEnded() {
+        if (mode == Mode.REPEAT){
+            return
+        } else  if (mode == Mode.NONE ) {
+            const index = queue.indexOf(currentTrackIndex);
+            if (index === queue.length - 1)
+                return;
+        }
+        dispatch(nextTrack())
+        dispatch(setPlaying(true))
     }
 
     return (

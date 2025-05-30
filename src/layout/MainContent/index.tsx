@@ -8,7 +8,7 @@ const Container = styled(Box)(({ theme }) => ({
     gridArea: "main-content",
     display: 'flex',
     alignItems: 'stretch',
-    overflow: "hidden"
+    overflowX: "hidden",
 }));
 interface MainContentProps{
     children?: JSX.Element
@@ -17,7 +17,7 @@ interface MainContentProps{
 const MainContent: FC<MainContentProps> = ({children}) => {
     return (
         <Container>
-            <Box bgcolor="background.default" borderRadius={3} width="100%" height="100%">
+            <Box bgcolor="background.default" borderRadius={3} width="100%" height="100%" sx={{overflowY: "auto"}}>
                 {children}
             </Box>
         </Container>

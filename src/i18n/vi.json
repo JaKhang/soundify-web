@@ -15,10 +15,10 @@
 
   },
   "section": {
-    "trending": "Thịnh hành"
+    "trending": "Thịnh hành",
+    "foryou": "Dành cho bạn"
   },
   "login": "Đăng Nhập",
-  "register": "Đăng Ký",
   "sidebar": {
     "open": "Mở Thư Viện",
     "close": "Đóng Thư Viện",
@@ -26,5 +26,61 @@
     "add": "Thêm Thư Viện",
     "search": "Tìm Kiếm",
     "recent": "Gần đây"
+  },
+  "action": {
+    "play": "Phát bài hát",
+    "removeFromQueue": "Xóa khỏi hàng đợi",
+    "share": "Chia sẻ",
+    "like" : "Thêm vào danh sách yêu thích"
+  },
+  "auth": {
+    "title": "Đăng nhập",
+    "continue": "Tiếp tục để truy cập tài khoản của bạn",
+    "forgotPassword": "Quên mật khẩu?",
+    "dontHaveAccount": "Bạn chưa có tài khoản? ",
+    "signup": "Đăng ký ngay",
+    "or": "HOẶC",
+    "email": "Địa chỉ email",
+    "password":  "Mật khẩu"
+  },
+  "validate": {
+    "email": {
+      "required": "Vui lòng nhập email",
+      "invalid": "Định dạng email không hợp lệ",
+      "exists": "Email đã tồn tại"
+    },
+    "displayName": {
+      "required": "Vui lòng nhập tên hiển thị"
+    },
+    "dateOfBirth": {
+      "required": "Vui lòng nhập ngày sinh",
+      "invalid": "Định dạng ngày không hợp lệ"
+    },
+    "gender": {
+      "required": "Vui lòng chọn giới tính"
+    },
+    "password": {
+      "required": "Vui lòng nhập mật khẩu",
+      "min": "Mật khẩu phải có ít nhất 8 ký tự"
+    },
+    "confirmPassword": {
+      "required": "Vui lòng xác nhận mật khẩu",
+      "notMatch": "Mật khẩu xác nhận không khớp"
+    },
+    "badCredentials": "Thông tin đăng nhập không chính xác !"
+  },
+  "register": {
+    "title": "Đăng ký",
+    "name": "Đăng ký",
+    "continue": "Tạo tài khoản của bạn để bắt đầu.",
+    "displayName": "Tên hiển thị",
+    "dateOfBirth": "Ngày sinh",
+    "gender": "Giới tính",
+    "genderMale": "Nam",
+    "genderFemale": "Nữ",
+    "genderOther": "Khác",
+    "confirmPassword": "Xác nhận mật khẩu",
+    "alreadyHaveAccount": "Bạn đã có tài khoản?",
+    "error": "Đăng ký thất bại."
   }
 }
