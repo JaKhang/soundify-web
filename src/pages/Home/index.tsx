@@ -3,18 +3,19 @@ import {albums} from "@models/mock.ts";
 import MusicCard from "@components/MusicCard";
 import {Box, Skeleton, Typography} from "@mui/material";
 import {useTranslation} from "react-i18next";
-import {Link, useNavigate} from "react-router";
+import {useNavigate} from "react-router";
 import {Album} from "@models/Album.ts";
 import {usePlayActions} from "@redux/action.ts";
 import albumApi from "../../api/AlbumApi.ts";
 import {PlayType} from "@features/play/musicPlaySlice.ts";
 import {useAppDispatch} from "@redux/store.ts";
 import {Swiper, SwiperSlide} from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import {Navigation, Pagination} from "swiper/modules";
 import Grid from '@mui/material/Grid';
 import "swiper/css";
 import "swiper/css/navigation";
 import Links from "@components/Links";
+
 const Home = () => {
     const {t} = useTranslation()
     const navigate = useNavigate()

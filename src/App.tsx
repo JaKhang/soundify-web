@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Layout from "@layout/Layout.tsx";
 import {Route, Routes} from "react-router";
 import Home from "@pages/Home";
@@ -9,8 +9,8 @@ import Register from "@pages/register";
 import AlbumDetails from "@pages/AlbumDetails";
 import Account from "@pages/Account";
 import DeviceDetails from "@pages/DeviceDetails";
-import {useTranslation} from "react-i18next";
 import Setting from "@pages/Setting";
+import Search from '@pages/Search';
 
 // Import Swiper styles
 const App = () => {
@@ -23,6 +23,7 @@ const App = () => {
                     <Route path="/albums/:id" element={<AuthorizeFilter authenticated={false}><AlbumDetails/></AuthorizeFilter>}/>
                     <Route path="/accounts" element={<AuthorizeFilter authenticated={true}><Account/></AuthorizeFilter>}/>
                     <Route path="/devices" element={<AuthorizeFilter authenticated={true}><DeviceDetails/></AuthorizeFilter>}/>
+                    <Route path="/search" element={<AuthorizeFilter authenticated={false}><Search/></AuthorizeFilter>}/>
                     <Route path="/settings" element={<AuthorizeFilter authenticated={true}><Setting/></AuthorizeFilter>}/>
                 </Route>
                 <Route path="/login" element={<Login/>}/>

@@ -1,17 +1,5 @@
 import React from 'react';
-import {
-    Avatar,
-    Box,
-    styled,
-    Button,
-    MenuItem,
-    ListItemIcon,
-    Divider,
-    Menu,
-    Tooltip,
-    IconButton,
-    Stack
-} from "@mui/material";
+import {Avatar, Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Stack, styled, Tooltip} from "@mui/material";
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
@@ -25,6 +13,7 @@ import SButton from "@components/SButton";
 import {useAppDispatch} from "@redux/store.ts";
 import {logout} from "@features/auth/authSlice.ts";
 import {useNavigate} from "react-router";
+
 const Container = styled(Box)(({ theme }) => ({
     height: 72,
     backgroundColor: theme.palette.background.paper,
@@ -146,7 +135,7 @@ const HeadBar = () => {
                                 </ListItemIcon>
                                 Add another account
                             </MenuItem>
-                            <MenuItem onClick={handleClose}>
+                            <MenuItem onClick={() => handleNavigate("/settings")}>
                                 <ListItemIcon>
                                     <Settings  fontSize="small" />
                                 </ListItemIcon>

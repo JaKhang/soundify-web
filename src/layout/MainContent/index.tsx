@@ -1,5 +1,4 @@
 import {Box, styled} from "@mui/material";
-import {useLayoutSelector} from "@redux/selector.ts";
 import React, {FC, JSX} from "react";
 
 const Container = styled(Box)(({ theme }) => ({
