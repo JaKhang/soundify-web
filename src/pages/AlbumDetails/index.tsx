@@ -328,7 +328,7 @@ const AlbumDetails = () => {
                                             </Box>
                                         </TableCell>
                                         <TableCell></TableCell>
-                                        <TableCell align="center">{convertSecondsToMMSS(row.duration)}</TableCell>
+                                        <TableCell align="center">{convertSecondsToMMSS(row.duration/1000)}</TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>

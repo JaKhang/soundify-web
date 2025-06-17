@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Layout from "@layout/Layout.tsx";
 import {Route, Routes} from "react-router";
 import Home from "@pages/Home";
@@ -11,10 +11,14 @@ import Account from "@pages/Account";
 import DeviceDetails from "@pages/DeviceDetails";
 import Setting from "@pages/Setting";
 import Search from '@pages/Search';
+import {useTranslation} from "react-i18next";
 
 // Import Swiper styles
 const App = () => {
-
+    const {t} = useTranslation()
+    useEffect(() => {
+        document.title = t("app.title")
+    }, []);
     return (
         <AuthMiddleware>
             <Routes>

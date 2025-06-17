@@ -46,10 +46,16 @@ const Home = () => {
 
     useEffect(() => {
         setLoading(true)
-        albumApi.getAlbumsByIds(['01JXVZJPVHNXDKT7VSTB3VC2KD','01JQGWFQF6P011MHS4V09YGK1J', '01JQGWFVD0Z4NRGHW8WKSEZ4W7', '01JQGWFYBWN4SWCPFR5VV8WE06', '01JQGWG2SHWK0TV451990689KP', '01JQGWGHFXFGHKZM6F5M3WXKF2'])
-            .then((albums) => setTrendingAlbum(albums))
-            .then((  () => setForYouAlbum(albums)))
+        Promise.all([
+            albumApi.getAlbumsByIds(['01JXVZJPVHNXDKT7VSTB3VC2KD','01JQGWFQF6P011MHS4V09YGK1J', '01JQGWFVD0Z4NRGHW8WKSEZ4W7', '01JQGWFYBWN4SWCPFR5VV8WE06', '01JQGWG2SHWK0TV451990689KP', '01JQGWGHFXFGHKZM6F5M3WXKF2']),
+            albumApi.getAlbumsByIds(['01JXZD1E92DSXFYHY0E6AKFYVV', '01JXZDQ4FFDAE1BAT41A5EY4DF', '01JXZFHC4PDYE8H643TGKDFM62', '01JXZG6RTFRD4XV25SHAMRHHC6','01JXZH19BTF7P5EG4WS74R0PVT'])
+
+        ]).then(([a, b]) => {
+            setTrendingAlbum(a)
+            setForYouAlbum(b)
+        })
             .finally(() => setLoading(false))
+
     }, []);
 
     if (loading)
