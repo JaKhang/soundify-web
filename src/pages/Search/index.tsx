@@ -1,19 +1,22 @@
 import {useTranslation} from "react-i18next";
 import {useLocation} from "react-router-dom";
-import {Box, Tab, Tabs} from "@mui/material";
+import {Box, CircularProgress, Tab, Tabs} from "@mui/material";
 import searchApi from "../../api/SearchApi.ts";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {Track} from "@models/Track.ts";
 import {Album} from "@models/Album.ts";
 import {Artist} from "@models/Artist.ts";
 import SearchTrackTable from "@components/SearchTrackTable";
+import SearchAlbum from "@components/SearchAlbum/SearchAlbum.tsx";
 
 const Search = () => {
   const {t} = useTranslation();
   const location = useLocation();
   const query: string = location.state;
   const [searchResults, setSearchResults] = useState<Track[] | Album[] | Artist[]>([]);
+  const criteriaRef = useRef<string>("tracks");
   const [criteria, setCriteria] = useState<string>("tracks");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const searchTabs = [
     {value: "tracks", label: "Songs"},
@@ -22,14 +25,22 @@ const Search = () => {
   ];
 
   useEffect(() => {
-    performSearch(query, criteria);
-  }, [query, criteria]);
+    if (query) {
+      performSearch(query, criteriaRef.current);
+    }
+  }, [query]);
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
+    criteriaRef.current = newValue;
     setCriteria(newValue);
+    setSearchResults([]);
+    if (query) {
+      performSearch(query, newValue);
+    }
   };
 
   const performSearch = async (searchQuery: string, searchCriteria: string) => {
+    setLoading(true);
     try {
       let results;
 
@@ -55,6 +66,8 @@ const Search = () => {
     } catch (error) {
       console.error('Search error:', error);
       setSearchResults([]);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -100,7 +113,12 @@ const Search = () => {
           <SearchTrackTable tracks={searchResults as Track[]}/>
         )
       }
-
+      {
+        criteria === "albums" && (
+          <SearchAlbum albums={searchResults as Album[]}/>
+        )
+      }
+      {loading && <CircularProgress />}
     </Box>
   );
 }

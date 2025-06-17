@@ -5,7 +5,7 @@ const DOMAIN = import.meta.env.VITE_API_BASE_URL || "https://soundifies.space";
 
 const axiosInstance = axios.create({
     proxy: false,
-    baseURL: DOMAIN,
+    baseURL: "http://localhost:8080",
     withCredentials:true
 });
 axiosInstance.interceptors.response.use(
