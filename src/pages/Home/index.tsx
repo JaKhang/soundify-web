@@ -31,7 +31,8 @@ const Home = () => {
                     shuffle: false,
                     tracks,
                     type: PlayType.ALBUM,
-                    title: a.name
+                    title: a.name,
+                    collectionId: a.id
                 }))
             })
     }
@@ -44,7 +45,7 @@ const Home = () => {
 
     useEffect(() => {
         setLoading(true)
-        albumApi.getAlbumsByIds(['01JQGWFQF6P011MHS4V09YGK1J', '01JQGWFVD0Z4NRGHW8WKSEZ4W7', '01JQGWFYBWN4SWCPFR5VV8WE06', '01JQGWG2SHWK0TV451990689KP', '01JQGWGHFXFGHKZM6F5M3WXKF2'])
+        albumApi.getAlbumsByIds(['01JXVZJPVHNXDKT7VSTB3VC2KD','01JQGWFQF6P011MHS4V09YGK1J', '01JQGWFVD0Z4NRGHW8WKSEZ4W7', '01JQGWFYBWN4SWCPFR5VV8WE06', '01JQGWG2SHWK0TV451990689KP', '01JQGWGHFXFGHKZM6F5M3WXKF2'])
             .then((albums) => setTrendingAlbum(albums))
             .then((  () => setForYouAlbum(albums)))
             .finally(() => setLoading(false))

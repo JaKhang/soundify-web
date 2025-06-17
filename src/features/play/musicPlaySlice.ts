@@ -14,6 +14,7 @@ interface MusicPlayState {
     trackList: Track[],
     currentTrackIndex: number,
     queue: number[],
+    collectionId: string | null
 }
 
 export enum Mode {
@@ -38,7 +39,8 @@ const initialState: MusicPlayState = {
     type: PlayType.SONG,
     trackList: [],
     currentTrackIndex: -1,
-    queue: []
+    queue: [],
+    collectionId: null
 };
 
 
@@ -74,6 +76,7 @@ const musicPlaySlice = createSlice({
             shuffle?: boolean,
             type: PlayType,
             title?: string,
+            collectionId: string | null
         }>){
             state.trackList = action.payload.tracks
             state.currentTrackIndex = 0
@@ -81,6 +84,7 @@ const musicPlaySlice = createSlice({
             state.playing = true
             state.shuffle = action.payload.shuffle || false
             state.title = action.payload.title || ""
+            state.collectionId = action.payload.collectionId
             if (!action.payload.shuffle){
                 state.queue = createArray(action.payload.tracks.length)
             } else {

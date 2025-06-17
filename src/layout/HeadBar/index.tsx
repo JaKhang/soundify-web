@@ -24,6 +24,7 @@ import {useTranslation} from "react-i18next";
 import SButton from "@components/SButton";
 import {useAppDispatch} from "@redux/store.ts";
 import {logout} from "@features/auth/authSlice.ts";
+import {useNavigate} from "react-router";
 const Container = styled(Box)(({ theme }) => ({
     height: 72,
     backgroundColor: theme.palette.background.paper,
@@ -44,6 +45,7 @@ const HeadBar = () => {
     const open = Boolean(anchorEl);
     const {t} = useTranslation()
     const dispatch = useAppDispatch()
+    const navigate = useNavigate()
 
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -54,6 +56,11 @@ const HeadBar = () => {
 
     function handleLogout() {
         dispatch(logout())
+    }
+
+    function handleNavigate(to: string) {
+        setAnchorEl(null);
+        navigate(to)
     }
 
     return (
@@ -77,7 +84,7 @@ const HeadBar = () => {
             {
                 principal ? (
                     <Box>
-                        <Tooltip title="Account settings">
+                        <Tooltip title="Index settings">
                             <IconButton
                                 onClick={handleClick}
                                 size="small"
@@ -128,11 +135,9 @@ const HeadBar = () => {
                             transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                             anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                         >
-                            <MenuItem onClick={handleClose}>
-                                <Avatar /> Profile
-                            </MenuItem>
-                            <MenuItem onClick={handleClose}>
-                                <Avatar /> My account
+
+                            <MenuItem onClick={() => handleNavigate("/accounts")}>
+                                <Avatar /> {t("account.title")}
                             </MenuItem>
                             <Divider />
                             <MenuItem onClick={handleClose}>

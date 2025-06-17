@@ -56,7 +56,7 @@ const modeIcons = {
 
 
 const Thumbnail = styled(Box)(
-    ({theme}) => `
+    () => `
         width: 64px;
         height: 64px;
         border-radius: 4px;

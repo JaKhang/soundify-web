@@ -7,6 +7,8 @@ import AuthorizeFilter from "@features/auth/AuthorizeFilter.tsx";
 import AuthMiddleware from "@features/auth/AuthMiddleware.tsx";
 import Register from "@pages/register";
 import AlbumDetails from "@pages/AlbumDetails";
+import Account from "@pages/Account";
+import DeviceDetails from "@pages/DeviceDetails";
 
 // Import Swiper styles
 const App = () => {
@@ -16,6 +18,8 @@ const App = () => {
                 <Route element={<Layout/>} >
                     <Route index element={<AuthorizeFilter authenticated={false}><Home/></AuthorizeFilter>}/>
                     <Route path="/albums/:id" element={<AuthorizeFilter authenticated={false}><AlbumDetails/></AuthorizeFilter>}/>
+                    <Route path="/accounts" element={<AuthorizeFilter authenticated={true}><Account/></AuthorizeFilter>}/>
+                    <Route path="/devices" element={<AuthorizeFilter authenticated={true}><DeviceDetails/></AuthorizeFilter>}/>
                 </Route>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>

@@ -11,8 +11,11 @@ const AuthorizeFilter: FC<AuthFilterProps> = ({children, authenticated}) => {
     const {principal} = useAuthSelector()
     if (!authenticated)
         return children;
+    console.log(principal)
     if (!principal)
         return <Navigate to="/login" />;
+
+    return children
 
 };
 

@@ -1,6 +1,10 @@
 {
   "app": {
-    "title": "Soundify - Web nghe nhạc trực tuyến"
+    "title": "Soundify - Web nghe nhạc trực tuyến",
+    "song": "Bài bát"
+  },
+  "label": {
+    "title" : "Tiêu Đề"
   },
   "queue": {
     "title": "Danh sách chờ",
@@ -82,5 +86,58 @@
     "confirmPassword": "Xác nhận mật khẩu",
     "alreadyHaveAccount": "Bạn đã có tài khoản?",
     "error": "Đăng ký thất bại."
+  },
+  "account": {
+    "title": "Tài khoản",
+    "noUserData": "Không có dữ liệu người dùng",
+    "email": "Email",
+    "dob": "Ngày sinh",
+    "locale": "Ngôn ngữ",
+    "status": "Trạng thái tài khoản",
+    "statuses": {
+      "active": "Hoạt động",
+      "inactive": "Không hoạt động",
+      "banned": "Bị cấm"
+    },
+    "verified": "Đã xác minh",
+    "yes": "Có",
+    "no": "Không",
+    "editProfile": "Chỉnh sửa hồ sơ",
+    "logout": "Đăng xuất"
+  },
+  "devices": {
+    "title": "Lịch Sử Đăng Nhập Thiết Bị",
+    "platform": "Nền Tảng",
+    "os": "Hệ Điều Hành",
+    "ip": "Địa Chỉ IP",
+    "status": "Trạng Thái",
+    "loginAt": "Thời Gian Đăng Nhập",
+    "current": "Hiện Tại",
+    "inactive": "Không Hoạt Động",
+    "noDevices": "Không tìm thấy thiết bị nào",
+    "errorFetching": "Lỗi khi tải thông tin thiết bị",
+    "actions": "Thao Tác",
+    "logout": "Đăng Xuất Thiết Bị",
+    "logoutConfirmTitle": "Xác Nhận Đăng Xuất",
+    "logoutConfirmMessage": "Bạn có chắc chắn muốn đăng xuất khỏi thiết bị này?",
+    "loggingOut": "Đang đăng xuất...",
+    "errorLogout": "Lỗi khi đăng xuất thiết bị",
+    "deviceDetails": {
+      "title": "Chi Tiết Thiết Bị",
+      "lastLogin": "Lần Đăng Nhập Cuối"
+    }
+  },
+  "common": {
+    "cancel": "Hủy",
+    "confirm": "Xác Nhận",
+    "ok": "Đồng Ý",
+    "error": "Lỗi",
+    "success": "Thành Công",
+    "loading": "Đang tải...",
+    "retry": "Thử Lại"
+  },
+  "status": {
+    "online": "Trực Tuyến",
+    "offline": "Ngoại Tuyến"
   }
 }

@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {useAuthSelector} from "@redux/selector.ts";
 import {useAuthAction} from "@redux/action.ts";
 import OnlyChildrenProps from "../../utils/OnlyChildrenProps.ts";
@@ -9,25 +9,24 @@ import accountApi from "../../api/AccountApi.ts";
 import {useAppDispatch} from "@redux/store.ts";
 
 const AuthMiddleware: FC<OnlyChildrenProps> = ({children}) => {
-    const {principal, loading, accessToken} = useAuthSelector()
+    const {principal, accessToken} = useAuthSelector()
     const dispatch = useAppDispatch()
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
+        setLoading(true)
         if (principal) return
         authApi.getAccessToken()
             .then(t => dispatch(getPrincipal(t.token)))
-            .then(() => accountApi.getDevices())
-            .then(p => console.log(p))
             .catch((e) => console.log(e))
+            .finally(() => setLoading(false))
     }, [principal]);
-
 
 
     if (principal)
         return children
     if (loading)
         return <div>loading</div>
-
-    return children;
+    return children
 };
 
 export default AuthMiddleware;
