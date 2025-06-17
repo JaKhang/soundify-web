@@ -139,5 +139,13 @@
   "status": {
     "online": "Trực Tuyến",
     "offline": "Ngoại Tuyến"
+  },
+  "setting": {
+    "title": "Cài Đặt",
+    "lang": {
+      "title": "Ngôn ngữ",
+      "vi": "Tiếng Việt",
+      "en": "English"
+    }
   }
 }

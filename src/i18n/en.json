@@ -1,0 +1,149 @@
+{
+  "app": {
+    "title": "Soundify - Online Music Streaming",
+    "song": "Song"
+  },
+  "label": {
+    "title": "Title"
+  },
+  "queue": {
+    "title": "Queue",
+    "playing": "Now Playing",
+    "next": "Next in Queue",
+    "from": "From"
+  },
+  "search": {
+    "explore": "Explore",
+    "placeholder": "What do you want to search?"
+  },
+  "section": {
+    "trending": "Trending",
+    "foryou": "For You"
+  },
+  "login": "Login",
+  "sidebar": {
+    "open": "Open Library",
+    "close": "Close Library",
+    "title": "Library",
+    "add": "Add to Library",
+    "search": "Search",
+    "recent": "Recent"
+  },
+  "action": {
+    "play": "Play song",
+    "removeFromQueue": "Remove from queue",
+    "share": "Share",
+    "like": "Add to favorites"
+  },
+  "auth": {
+    "title": "Login",
+    "continue": "Continue to access your account",
+    "forgotPassword": "Forgot Password?",
+    "dontHaveAccount": "Don't have an account? ",
+    "signup": "Sign up now",
+    "or": "OR",
+    "email": "Email address",
+    "password": "Password"
+  },
+  "validate": {
+    "email": {
+      "required": "Please enter email",
+      "invalid": "Invalid email format",
+      "exists": "Email already exists"
+    },
+    "displayName": {
+      "required": "Please enter display name"
+    },
+    "dateOfBirth": {
+      "required": "Please enter date of birth",
+      "invalid": "Invalid date format"
+    },
+    "gender": {
+      "required": "Please select gender"
+    },
+    "password": {
+      "required": "Please enter password",
+      "min": "Password must be at least 8 characters"
+    },
+    "confirmPassword": {
+      "required": "Please confirm password",
+      "notMatch": "Passwords do not match"
+    },
+    "badCredentials": "Invalid login credentials!"
+  },
+  "register": {
+    "title": "Register",
+    "name": "Register",
+    "continue": "Create your account to get started.",
+    "displayName": "Display Name",
+    "dateOfBirth": "Date of Birth",
+    "gender": "Gender",
+    "genderMale": "Male",
+    "genderFemale": "Female",
+    "genderOther": "Other",
+    "confirmPassword": "Confirm Password",
+    "alreadyHaveAccount": "Already have an account?",
+    "error": "Registration failed."
+  },
+  "account": {
+    "title": "Account",
+    "noUserData": "No user data",
+    "email": "Email",
+    "dob": "Date of Birth",
+    "locale": "Language",
+    "status": "Account Status",
+    "statuses": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "banned": "Banned"
+    },
+    "verified": "Verified",
+    "yes": "Yes",
+    "no": "No",
+    "editProfile": "Edit Profile",
+    "logout": "Logout"
+  },
+  "devices": {
+    "title": "Device Login History",
+    "platform": "Platform",
+    "os": "Operating System",
+    "ip": "IP Address",
+    "status": "Status",
+    "loginAt": "Login Time",
+    "current": "Current",
+    "inactive": "Inactive",
+    "noDevices": "No devices found",
+    "errorFetching": "Error loading device information",
+    "actions": "Actions",
+    "logout": "Logout Device",
+    "logoutConfirmTitle": "Confirm Logout",
+    "logoutConfirmMessage": "Are you sure you want to logout from this device?",
+    "loggingOut": "Logging out...",
+    "errorLogout": "Error logging out device",
+    "deviceDetails": {
+      "title": "Device Details",
+      "lastLogin": "Last Login"
+    }
+  },
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "ok": "OK",
+    "error": "Error",
+    "success": "Success",
+    "loading": "Loading...",
+    "retry": "Retry"
+  },
+  "status": {
+    "online": "Online",
+    "offline": "Offline"
+  },
+  "setting": {
+    "title": "Setting",
+    "lang": {
+      "title": "Language",
+      "vi": "Tiếng Việt",
+      "en": "English"
+    }
+  }
+}

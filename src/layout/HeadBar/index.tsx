@@ -66,16 +66,16 @@ const HeadBar = () => {
     return (
         <Container>
             <Box>
-                <IconButton size="large">
+                <IconButton size="large" onClick={() => navigate(-1)}>
                     <ArrowBackIcon/>
                 </IconButton>
-                <IconButton size="large">
+                <IconButton size="large" onClick={() => navigate(1)}>
                     <ArrowForwardIcon/>
                 </IconButton>
             </Box>
             <Stack direction="row" spacing={2} flex={1}  alignItems={'center'} justifyContent={'center'}>
                 <Box>
-                    <IconButton size="large">
+                    <IconButton size="large" onClick={() => navigate("/")}>
                         <HomeIcon/>
                     </IconButton>
                 </Box>
