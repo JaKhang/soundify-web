@@ -12,6 +12,7 @@ import DeviceDetails from "@pages/DeviceDetails";
 import Setting from "@pages/Setting";
 import Search from '@pages/Search';
 import {useTranslation} from "react-i18next";
+import ArtistDetail from "@pages/ArtistDetail";
 
 // Import Swiper styles
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
                 <Route element={<Layout/>} >
                     <Route index element={<AuthorizeFilter authenticated={false}><Home/></AuthorizeFilter>}/>
                     <Route path="/albums/:id" element={<AuthorizeFilter authenticated={false}><AlbumDetails/></AuthorizeFilter>}/>
+                    <Route path="/artists/:id" element={<AuthorizeFilter authenticated={false}><ArtistDetail/></AuthorizeFilter>}/>
                     <Route path="/accounts" element={<AuthorizeFilter authenticated={true}><Account/></AuthorizeFilter>}/>
                     <Route path="/devices" element={<AuthorizeFilter authenticated={true}><DeviceDetails/></AuthorizeFilter>}/>
                     <Route path="/search" element={<AuthorizeFilter authenticated={false}><Search/></AuthorizeFilter>}/>

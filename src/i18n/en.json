@@ -1,7 +1,9 @@
 {
   "app": {
     "title": "Soundify - Online Music Streaming",
-    "song": "Song"
+    "song": "Song",
+    "followers": "followers",
+    "artist": "Artist"
   },
   "label": {
     "title": "Title"
@@ -14,7 +16,11 @@
   },
   "search": {
     "explore": "Explore",
-    "placeholder": "What do you want to search?"
+    "placeholder": "What do you want to search?",
+    "title": "Search",
+    "artists": "Artist",
+    "albums": "Album",
+    "tracks": "Track"
   },
   "section": {
     "trending": "Trending",
@@ -132,7 +138,8 @@
     "error": "Error",
     "success": "Success",
     "loading": "Loading...",
-    "retry": "Retry"
+    "retry": "Retry",
+    "followers": "followers"
   },
   "status": {
     "online": "Online",

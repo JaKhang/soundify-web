@@ -8,6 +8,7 @@ import {Album} from "@models/Album.ts";
 import {Artist} from "@models/Artist.ts";
 import SearchTrackTable from "@components/SearchTrackTable";
 import SearchAlbum from "@components/SearchAlbum/SearchAlbum.tsx";
+import SearchArtist from "@components/SearchArtist/SearchArtist.tsx";
 
 const Search = () => {
   const {t} = useTranslation();
@@ -19,9 +20,9 @@ const Search = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const searchTabs = [
-    {value: "tracks", label: "Songs"},
-    {value: "albums", label: "Albums"},
-    {value: "artists", label: "Artists"},
+    {value: "tracks", label: t('search.tracks')},
+    {value: "albums", label: t('search.albums')},
+    {value: "artists", label: t('search.artists')},
   ];
 
   useEffect(() => {
@@ -73,7 +74,7 @@ const Search = () => {
 
   return (
     <Box padding={2}>
-      <h1>Tìm kiếm</h1>
+      <h1>{t('search.title')}</h1>
       {/* ✅ Navigation Tabs */}
       <Box sx={{ mb: 3, ml: 3 }}>
         <Tabs
@@ -116,6 +117,11 @@ const Search = () => {
       {
         criteria === "albums" && (
           <SearchAlbum albums={searchResults as Album[]}/>
+        )
+      }
+      {
+        criteria === "artists" && (
+          <SearchArtist artists={searchResults as Artist[]}/>
         )
       }
       {loading && <CircularProgress />}

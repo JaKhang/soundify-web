@@ -1,7 +1,9 @@
 {
   "app": {
     "title": "Soundify - Web nghe nhạc trực tuyến",
-    "song": "Bài bát"
+    "song": "Bài hát",
+    "followers": "người theo dõi",
+    "artist": "Nhạc sĩ"
   },
   "label": {
     "title" : "Tiêu Đề"
@@ -15,8 +17,11 @@
   },
   "search": {
     "explore": "Khám Phá",
-    "placeholder": "Bạn muốn tìm nội dung gì?"
-
+    "placeholder": "Bạn muốn tìm nội dung gì?",
+    "title": "Tìm kiếm",
+    "artists": "Nhạc sĩ",
+    "albums": "Album",
+    "tracks": "Bài hát"
   },
   "section": {
     "trending": "Thịnh hành",
@@ -134,7 +139,8 @@
     "error": "Lỗi",
     "success": "Thành Công",
     "loading": "Đang tải...",
-    "retry": "Thử Lại"
+    "retry": "Thử Lại",
+    "followers": "người theo dõi"
   },
   "status": {
     "online": "Trực Tuyến",

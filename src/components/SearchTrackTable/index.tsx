@@ -144,21 +144,6 @@ const SearchTrackTable = ({tracks}: SearchTableProp) => {
           })}
         </TableBody>
       </Table>
-
-      {/* 📭 Empty State */}
-      {tracks.length === 0 && (
-        <Box
-          sx={{
-            textAlign: 'center',
-            py: 4,
-            color: 'text.secondary'
-          }}
-        >
-          <Typography variant="h6">
-            {t("message.no_tracks_found")}
-          </Typography>
-        </Box>
-      )}
     </TableContainer>
   );
 };
